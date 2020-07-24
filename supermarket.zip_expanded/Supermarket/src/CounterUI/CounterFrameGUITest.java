@@ -1,98 +1,125 @@
 package CounterUI;
 
-import static org.junit.Assert.*; 
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+
+import javax.swing.JTextField;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import static org.mockito.Mockito.*;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import Counter.MarketProxyStub;
+import junit.framework.Assert;
 
-import Counter.MarketProxy;
-
-@RunWith(MockitoJUnitRunner.StrictStubs.class)
 public class CounterFrameGUITest {
-
-	private CounterFrame instance; // instance to test
-
-	@Mock
-	private MarketProxy mockProxy; // injects mocked resource
 	
-	private void setConnect(long employee, String password, String ret) throws Exception {
-		when(mockProxy.connect(employee, password)).thenReturn(ret);
-	}
-	private void setConnectThrowException(long employee, String password) throws Exception {
-		doThrow(Exception.class).when(mockProxy.connect(employee, password));
-	}
-	
-	private void setGetName(long item, String name) throws Exception {
-		when(mockProxy.getName(item)).thenReturn(name);
-	}
-	private void setGetNameThrowException(long item) throws Exception {
-		doThrow(Exception.class).when(mockProxy.getName(item));
-	}
-	
-	private void setGetPrice(long item, double price) throws Exception {
-		when(mockProxy.getPrice(item)).thenReturn(price);
-	}
-	private void setGetPriceThrowException(long item) throws Exception {
-		doThrow(Exception.class).when(mockProxy.getPrice(item));
-	}
-	
-
-	private void setGetCustomer(long code, String res) throws Exception {
-		when(mockProxy.getCustomer(code)).thenReturn(res);
-	}
-	private void setGetCustomerThrowException(long code) throws Exception {
-		doThrow(Exception.class).when(mockProxy.getCustomer(code));
-	}
-
-	private void setStartTransaction(long customer, long employee) throws Exception {
-		doNothing().when(mockProxy).startTransaction(customer, employee);
-	}
-	private void setStartTransactionThrowException(long customer, long employee) throws Exception {
-		doThrow(Exception.class).when(mockProxy).startTransaction(customer, employee);
-	}
-
-	private void setBuy(long item, long quantity) throws Exception {
-		doNothing().when(mockProxy).buy(item, quantity);
-	}
-	private void setBuyThrowException(long item, long quantity) throws Exception {
-		doThrow(Exception.class).when(mockProxy).buy(item, quantity);
-	}
-
-	private void setEndTransaction() throws Exception {
-		doNothing().when(mockProxy).endTransaction();
-	}
-	private void setEndTransactionThrowException() throws Exception {
-		doThrow(Exception.class).when(mockProxy).endTransaction();
-	}
-	
-	private void setAbortTransaction() throws Exception {
-		doNothing().when(mockProxy).abortTransaction();
-	}
-	private void setAbortTransactionThrowException() throws Exception {
-		doThrow(Exception.class).when(mockProxy).abortTransaction();
-	}
-
-	private void setDisconnect() throws Exception {
-		doNothing().when(mockProxy).disconnect();
-	}
-	private void setDisconnectThrowException() throws Exception {
-		doThrow(Exception.class).when(mockProxy).disconnect();
-	}
+	private CounterFrame instance;
+	private MarketProxyStub stub;
 	
 	@Before
 	public void setUp() throws Exception {
+		stub = new MarketProxyStub();
 		// create instance
-		this.instance = new CounterFrame(this.mockProxy);
+		this.instance = new CounterFrame(stub);
 	}
-
+	
+	private void connect() {
+		stub.setConnect("test");
+		instance.employeePassword.setText("test");
+		instance.ConnectButton.doClick();
+	}
+	
 	@Test
-	public void test() {
-		instance.show();
+	public void textConnect() throws Exception{
+		stub.setConnect(null);
+		instance.employeePassword.setText("test");
+		instance.ConnectButton.doClick();
+		connect();
+//		hold();
 	}
+	
+	private void hold() throws Exception{
+		instance.show();
+		Thread.sleep(100000);
+	}
+	
+	@Test
+	public void textDisconnect() throws Exception{
+		connect();
+		instance.show();
+		// disconnect
+		instance.ConnectButton.doClick();
+	}
+	
+	@Test
+	public void textAcquire1() throws Exception{
+		connect();
+		stub.setCustomer("");
+//		hold();
+//		instance.SubmitButton.doClick();
+//		hold();
+		instance.customerCode.setText("1");
+		instance.SubmitButton.doClick();
+		instance.customerName.setText("test");
+		instance.btCustomer.doClick();
+		instance.SubmitButton.doClick();
+		instance.ItemCode.setText("1");
+		stub.setPrice(12);
+		stub.setName("item");
+		instance.getPrice.doClick();
+//		Assert.assertEquals(Double.parseDouble(instance.itemPrice.getText()), 12);
+//		Assert.assertEquals("item", instance.itemName.getText());
+		instance.EndButton.doClick();
+	}
+	
+	@Test
+	public void textAcquire2() throws Exception{
+		connect();
 
+		instance.ItemCode.setText("1");
+		stub.setPrice(12);
+		stub.setName("item");
+		instance.getPrice.doClick();
+//		Assert.assertEquals(Double.parseDouble(instance.itemPrice.getText()), 12);
+//		Assert.assertEquals("item", instance.itemName.getText());
+		instance.EndButton.doClick();
+	}	
+	
+	@Test
+	public void textAcquire3() throws Exception{
+		connect();
+		instance.customerCode.setText("0");
+		instance.getPrice.doClick();
+		instance.ItemCode.setText("1");
+		instance.ItemQuantity.setText("3");
+		stub.setPrice(12);
+		stub.setName("item");
+		instance.getPrice.doClick();
+		instance.SubmitButton.doClick();
+//		Assert.assertEquals(Double.parseDouble(instance.itemPrice.getText()), 12);
+//		Assert.assertEquals("item", instance.itemName.getText());
+		instance.EndButton.doClick();
+	}
+	
+	@Test
+	public void textAcquire4() throws Exception{
+		connect();
+		instance.customerCode.setText("0");
+		instance.ItemCode.setText("1");
+		instance.ItemQuantity.setText("3");
+		stub.setPrice(12);
+		stub.setName("item");
+		instance.getPrice.doClick();
+		instance.SubmitButton.doClick();
+		instance.ItemCode.setText("1");
+		instance.ItemQuantity.setText("3");
+		stub.setPrice(12);
+		stub.setName("item");
+		instance.getPrice.doClick();
+		instance.SubmitButton.doClick();
+//		hold();
+//		Assert.assertEquals(Double.parseDouble(instance.itemPrice.getText()), 12);
+//		Assert.assertEquals("item", instance.itemName.getText());
+		instance.EndButton.doClick();
+	}
 }

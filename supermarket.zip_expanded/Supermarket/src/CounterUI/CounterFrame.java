@@ -1,4 +1,3 @@
-
 package CounterUI;
 
 import java.awt.*;
@@ -11,9 +10,9 @@ public class CounterFrame
     extends JFrame
     implements BarCodeListener {
   private GridBagLayout gridBagLayout1 = new GridBagLayout();
-  private JToggleButton ConnectButton = new JToggleButton();
+  JToggleButton ConnectButton = new JToggleButton();
 
-  private JTextField messageLine = new JTextField();
+  JTextField messageLine = new JTextField();
   private JPanel panelKeyboard = new JPanel();
   private GridLayout gridLayout1 = new GridLayout();
   private JButton bt1 = new JButton();
@@ -28,31 +27,31 @@ public class CounterFrame
   private JButton btDot = new JButton();
   private JButton bt0 = new JButton();
   private JButton btCanc = new JButton();
-  private JTextField lastInputField = null;
+  JTextField lastInputField = null;
   private JPanel panelMain = new JPanel();
   private GridBagLayout gridBagLayout2 = new GridBagLayout();
   private JLabel jLabel1 = new JLabel();
-  private JTextField customerCode = new JTextField();
-  private JTextField ItemQuantity = new JTextField();
-  private JButton EndButton = new JButton();
-  private JButton getPrice = new JButton();
-  private JTextField Total = new JTextField();
-  private JTextField itemPrice = new JTextField();
-  private JTextField customerName = new JTextField();
-  private JButton SubmitButton = new JButton();
-  private JButton btCustomer = new JButton();
-  private JTextField itemName = new JTextField();
+  JTextField customerCode = new JTextField();
+  JTextField ItemQuantity = new JTextField();
+  JButton EndButton = new JButton();
+  JButton getPrice = new JButton();
+  JTextField Total = new JTextField();
+  JTextField itemPrice = new JTextField();
+  JTextField customerName = new JTextField();
+  JButton SubmitButton = new JButton();
+  JButton btCustomer = new JButton();
+  JTextField itemName = new JTextField();
   private JLabel jLabel6 = new JLabel();
   private JLabel jLabel5 = new JLabel();
   private JLabel jLabel4 = new JLabel();
-  private JTextField ItemCode = new JTextField();
+  JTextField ItemCode = new JTextField();
   private JLabel jLabel3 = new JLabel();
   private JLabel jLabel2 = new JLabel();
   private JPanel panelLogin = new JPanel();
   private JLabel jLabel7 = new JLabel();
-  private JTextField employeeName = new JTextField();
+  JTextField employeeName = new JTextField();
   private JLabel jLabel8 = new JLabel();
-  private JPasswordField employeePassword = new JPasswordField();
+  JPasswordField employeePassword = new JPasswordField();
   private GridBagLayout gridBagLayout3 = new GridBagLayout();
   private JScrollPane jScrollPane1 = new JScrollPane();
   private JTextArea textCheck = new JTextArea();
