@@ -5,7 +5,7 @@ import java.sql.*;
 public class Customer {
   public long code;
   public String name;
-  Customer(long c, String n){
+  public Customer(long c, String n){
     code = c;
     name = n;
   }

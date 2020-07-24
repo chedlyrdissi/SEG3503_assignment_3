@@ -9,7 +9,7 @@ import java.io.File;
 @SuppressWarnings("serial")
 public class BarCodeReaderUI extends JFrame {
   private GridBagLayout gridBagLayout1 = new GridBagLayout();
-  private JButton btProduct1 = new JButton();
+  public JButton btProduct1 = new JButton();
   
   private static final String IMAGE_FOLDER ="barcodes" + File.separator;
 
@@ -18,10 +18,10 @@ public class BarCodeReaderUI extends JFrame {
   private ImageIcon iconProduct3 = new ImageIcon(IMAGE_FOLDER+"Product3.jpg");
   private ImageIcon iconCustomer1 = new ImageIcon(IMAGE_FOLDER+"Customer1.jpg");
   private ImageIcon iconCustomer2 = new ImageIcon(IMAGE_FOLDER+"Customer2.jpg");
-  private JButton btProduct2 = new JButton();
-  private JButton btProduct3 = new JButton();
-  private JButton btCustomer1 = new JButton();
-  private JButton btCustomer2 = new JButton();
+  public JButton btProduct2 = new JButton();
+  public JButton btProduct3 = new JButton();
+  public JButton btCustomer1 = new JButton();
+  public JButton btCustomer2 = new JButton();
 
   public BarCodeReaderUI() {
     try {

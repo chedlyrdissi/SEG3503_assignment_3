@@ -5,4 +5,18 @@
     <fullyQualifiedTypeName name="org.mockito.Mock"/>
     <fullyQualifiedTypeName name="Counter.MarketProxy"/>
     <fullyQualifiedTypeName name="CounterUI.CounterFrame"/>
+    <fullyQualifiedTypeName name="Counter.MarketProxyStub"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="java.awt.event.FocusEvent"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="CounterUI.BarCodeReaderEvent"/>
+    <fullyQualifiedTypeName name="MarketDB.DBManager"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="junit.framework.Assert"/>
+    <fullyQualifiedTypeName name="MarketDB.DBManagerStub"/>
+    <fullyQualifiedTypeName name="MarketDB.Employee"/>
+    <fullyQualifiedTypeName name="MarketDB.Item"/>
+    <fullyQualifiedTypeName name="MarketDB.Customer"/>
 </qualifiedTypeNameHistroy>

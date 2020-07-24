@@ -11696,3 +11696,18 @@ java.lang.Exception: The project description file (.project) for 'Supermarket' i
 
 !ENTRY org.eclipse.core.variables 4 120 2020-07-23 21:38:19.959
 !MESSAGE Contributed variable extension from bundle 'com.espressif.esp32.debug.gdbjtag.openocd' overrides existing extension variable 'openocd_path' from  bundle 'com.espressif.esp32.debug.gdbjtag.openocd'
+
+!ENTRY org.eclipse.eclemma.core 4 5013 2020-07-24 11:23:45.073
+!MESSAGE Error while dumping coverage data (code 5013).
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:324)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:351)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:802)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:937)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:932)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:83)
+	at org.jacoco.core.data.ExecutionDataReader.read(ExecutionDataReader.java:84)
+	at org.eclipse.eclemma.internal.core.MemoryExecutionDataSource.readFrom(MemoryExecutionDataSource.java:69)
+	at org.eclipse.eclemma.internal.core.launching.AgentServer.run(AgentServer.java:115)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

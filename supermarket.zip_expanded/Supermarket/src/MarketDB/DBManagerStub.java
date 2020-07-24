@@ -31,7 +31,7 @@ public class DBManagerStub implements DBManager{
 		return customer;
 	}
 	
-	public void getCustomer(Customer c) {
+	public void setCustomer(Customer c) {
 		customer = c;
 	}
 	

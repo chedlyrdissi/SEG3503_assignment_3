@@ -7,7 +7,7 @@ public class Item {
   public String name;
   public double price;
   public long quantity;
-  Item(long c, String n, double p, long q){
+  public Item(long c, String n, double p, long q){
     code = c;
     name = n;
     price = p;
