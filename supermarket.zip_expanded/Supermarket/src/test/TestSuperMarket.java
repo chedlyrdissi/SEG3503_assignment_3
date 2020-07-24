@@ -1,4 +1,3 @@
-
 package test;
 import CounterUI.BarCodeReaderUI;
 import CounterUI.CounterFrame;

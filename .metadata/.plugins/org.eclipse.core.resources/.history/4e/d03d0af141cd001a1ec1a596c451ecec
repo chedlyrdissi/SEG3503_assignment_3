@@ -1,0 +1,33 @@
+package CounterUI;
+
+import static org.junit.Assert.*; 
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import Counter.MarketProxy;
+
+@RunWith(MockitoJUnitRunner.StrictStubs.class)
+public class CounterFrameGUITest {
+
+	private CounterFrame instance; // instance to test
+
+	@Mock
+	private MarketProxy mock; // injects mocked resource
+	
+	
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

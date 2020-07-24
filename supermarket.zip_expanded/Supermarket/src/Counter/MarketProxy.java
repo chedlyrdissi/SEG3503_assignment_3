@@ -1,4 +1,3 @@
-
 package Counter;
 
 public interface MarketProxy {
@@ -16,4 +15,3 @@ public interface MarketProxy {
 
   public void disconnect();
 }
-

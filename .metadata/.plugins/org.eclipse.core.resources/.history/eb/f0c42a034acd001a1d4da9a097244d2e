@@ -1,0 +1,98 @@
+package CounterUI;
+
+import static org.junit.Assert.*; 
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.mockito.Mockito.*;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import Counter.MarketProxy;
+
+@RunWith(MockitoJUnitRunner.StrictStubs.class)
+public class CounterFrameGUITest {
+
+	private CounterFrame instance; // instance to test
+
+	@Mock
+	private MarketProxy mockProxy; // injects mocked resource
+	
+	private void setConnect(long employee, String password, String ret) throws Exception {
+		when(mockProxy.connect(employee, password)).thenReturn(ret);
+	}
+	private void setConnectThrowException(long employee, String password) throws Exception {
+		doThrow(Exception.class).when(mockProxy.connect(employee, password));
+	}
+	
+	private void setGetName(long item, String name) throws Exception {
+		when(mockProxy.getName(item)).thenReturn(name);
+	}
+	private void setGetNameThrowException(long item) throws Exception {
+		doThrow(Exception.class).when(mockProxy.getName(item));
+	}
+	
+	private void setGetPrice(long item, double price) throws Exception {
+		when(mockProxy.getPrice(item)).thenReturn(price);
+	}
+	private void setGetPriceThrowException(long item) throws Exception {
+		doThrow(Exception.class).when(mockProxy.getPrice(item));
+	}
+	
+
+	private void setGetCustomer(long code, String res) throws Exception {
+		when(mockProxy.getCustomer(code)).thenReturn(res);
+	}
+	private void setGetCustomerThrowException(long code) throws Exception {
+		doThrow(Exception.class).when(mockProxy.getCustomer(code));
+	}
+
+	private void setStartTransaction(long customer, long employee) throws Exception {
+		doNothing().when(mockProxy).startTransaction(customer, employee);
+	}
+	private void setStartTransactionThrowException(long customer, long employee) throws Exception {
+		doThrow(Exception.class).when(mockProxy).startTransaction(customer, employee);
+	}
+
+	private void setBuy(long item, long quantity) throws Exception {
+		doNothing().when(mockProxy).buy(item, quantity);
+	}
+	private void setBuyThrowException(long item, long quantity) throws Exception {
+		doThrow(Exception.class).when(mockProxy).buy(item, quantity);
+	}
+
+	private void setEndTransaction() throws Exception {
+		doNothing().when(mockProxy).endTransaction();
+	}
+	private void setEndTransactionThrowException() throws Exception {
+		doThrow(Exception.class).when(mockProxy).endTransaction();
+	}
+	
+	private void setAbortTransaction() throws Exception {
+		doNothing().when(mockProxy).abortTransaction();
+	}
+	private void setAbortTransactionThrowException() throws Exception {
+		doThrow(Exception.class).when(mockProxy).abortTransaction();
+	}
+
+	private void setDisconnect() throws Exception {
+		doNothing().when(mockProxy).disconnect();
+	}
+	private void setDisconnectThrowException() throws Exception {
+		doThrow(Exception.class).when(mockProxy).disconnect();
+	}
+	
+	@Before
+	public void setUp() throws Exception {
+		// create instance
+		this.instance = new CounterFrame(this.mockProxy);
+	}
+
+	@Test
+	public void test() {
+		instance.show();
+	}
+
+}
